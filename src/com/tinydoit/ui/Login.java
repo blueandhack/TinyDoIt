@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import com.tinydoit.logic.UserLogic;
+
 public class Login extends JFrame {
 	private JTextField UsernameTextField;
 	private JPasswordField PasswordField;
@@ -96,10 +98,17 @@ public class Login extends JFrame {
 			String PasswordString = new String(PasswordChar);
 			if (e.getSource() == LoginButton) {
 				if ("".equals(PasswordString) && "".equals(UsernameString)) {
-					JOptionPane.showMessageDialog(null, "密码或用户名为空，请重新输入");
+					JOptionPane.showMessageDialog(null, "用户名或密码为空，请重新输入");
+					return;
 				} else {
-					setVisible(false);
-					new Main();
+					if (UserLogic.checkLoginByUser(UsernameString,
+							PasswordString)) {
+						setVisible(false);
+						new Main();
+					} else {
+						JOptionPane.showMessageDialog(null, "用户名或密码错误，请重新输入");
+						return;
+					}
 				}
 			}
 			if (e.getSource() == RegisterButton) {

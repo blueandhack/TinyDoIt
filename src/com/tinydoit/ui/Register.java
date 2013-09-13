@@ -16,7 +16,9 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 
+import com.tinydoit.dao.UserDao;
 import com.tinydoit.daoimpl.DBUtil;
+import com.tinydoit.logic.UserLogic;
 
 public class Register extends JFrame {
 	private JTextField UsernameTextField;
@@ -98,6 +100,7 @@ public class Register extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			String UsernameString = UsernameTextField.getText();
 			char PasswordChar[] = PasswordField.getPassword();
 			char PasswordConfirmChar[] = PasswordConfirmField.getPassword();
 
@@ -110,31 +113,24 @@ public class Register extends JFrame {
 			}
 			if (e.getSource() == RegisterButton) {
 
-				try {
-					conn = DBUtil.getConnection();
-					if (PasswordString.equals(PasswordConfirmString)) {
-						if (SeacherUsername()) {
+				// conn = DBUtil.getConnection();
+				if (PasswordString.equals(PasswordConfirmString)) {
+					if (UserLogic.checkUserByUsername(UsernameString)) {
 
-							if (RegisterUsername()) {
-								JOptionPane.showMessageDialog(null, "用户注册成功");
+						if (UserLogic.addUser(UsernameString, PasswordString)) {
+							JOptionPane.showMessageDialog(null, "用户注册成功");
 
-							} else {
-								JOptionPane.showMessageDialog(null, "用户注册失败");
-								return;
-							}
 						} else {
-							JOptionPane.showMessageDialog(null, "用户名已被注册");
+							JOptionPane.showMessageDialog(null, "用户注册失败");
 							return;
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, "两次输入密码不相同，请重新输入");
+						JOptionPane.showMessageDialog(null, "用户名已被注册");
 						return;
 					}
-
-					DBUtil.free(rs, ps, conn);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} else {
+					JOptionPane.showMessageDialog(null, "两次输入密码不相同，请重新输入");
+					return;
 				}
 				setVisible(false);
 				Login.getInstance().setVisible(true);
@@ -143,34 +139,8 @@ public class Register extends JFrame {
 		}
 	}
 
-	public boolean SeacherUsername() throws SQLException {
-
-		String UsernameString = UsernameTextField.getText();
-		String sql = "select username from userinfo  where username = '"
-				+ UsernameString + "'";
-		ps = conn.prepareStatement(sql);
-		rs = ps.executeQuery();
-		while (rs.next()) {
-			return false;
-		}
-		return true;
-	}
-
 	public boolean RegisterUsername() throws SQLException {
 
-		String UsernameString = UsernameTextField.getText();
-		char PasswordChar[] = PasswordField.getPassword();
-		String PasswordString = new String(PasswordChar);
-
-		String sql = "insert into userinfo(username,password) values (?,?) ";
-		ps = conn.prepareStatement(sql);
-		// ps.setString(1, "1");
-		ps.setString(1, UsernameString);
-		ps.setString(2, PasswordString);
-		int i = ps.executeUpdate();
-		if (i > 0) {
-			return true;
-		}
 		return false;
 	}
 
