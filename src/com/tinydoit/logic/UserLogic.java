@@ -3,6 +3,7 @@ package com.tinydoit.logic;
 import java.sql.SQLException;
 
 import com.tinydoit.dao.UserDao;
+import com.tinydoit.domain.User;
 
 public class UserLogic {
 
@@ -21,4 +22,16 @@ public class UserLogic {
 		return userDao.checkLoginByUser(Username, Password);
 	}
 
+	public static boolean creatUserTable(String Username) {
+		return userDao.creatUserTable(Username);
+		// return true;
+	}
+
+	public static boolean checkUserTable(String Username) {
+		return userDao.checkUserTable(Username);
+	}
+
+	public static User getUserByUsername(String Username) {
+		return userDao.getUserByUsername(Username);
+	}
 }
