@@ -2,15 +2,15 @@ package com.tinydoit.domain;
 
 public class User {
 
-	private String iD;
+	private int iD;
 	private String userName;
 	private String password;
 
-	public String getiD() {
+	public int getiD() {
 		return iD;
 	}
 
-	public void setiD(String iD) {
+	public void setiD(int iD) {
 		this.iD = iD;
 	}
 
@@ -30,7 +30,7 @@ public class User {
 		this.password = password;
 	}
 
-	public User(String iD, String userName, String password) {
+	public User(int iD, String userName, String password) {
 		super();
 		this.iD = iD;
 		this.userName = userName;

@@ -8,13 +8,13 @@ import java.sql.Statement;
 
 public final class DBUtil {
 
-	//连接数据库必要条件
+	// 连接数据库必要条件
 	private static String driverName = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://blueandhack.com/bluehack_doit";
-	private static String userName = "bluehack_doit";
-	private static String password = "tinydoit";
+	private static String url = "jdbc:mysql://localhost/bluehack_doit";
+	private static String userName = "root";
+	private static String password = "";
 
-	//创建单例，静态化
+	// 创建单例，静态化
 	private DBUtil() {
 	}
 
@@ -40,12 +40,18 @@ public final class DBUtil {
 		}
 	}
 
-	//连接数据库
+	// 连接数据库
 	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(url, userName, password);
+		return DriverManager.getConnection(url + "?user=" + userName
+				+ "&password=" + password
+				+ "&useUnicode=true&characterEncoding=utf-8");/*
+															 * url, userName,
+															 * password);
+															 */
+
 	}
 
-	//释放资源
+	// 释放资源
 	public static void free(ResultSet rs, Statement stat, Connection conn) {
 		try {
 			if (rs != null)// 否则会抛空指针异常
