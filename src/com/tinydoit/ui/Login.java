@@ -8,15 +8,12 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import com.tinydoit.domain.User;
 import com.tinydoit.logic.UserLogic;
 
 public class Login extends JFrame {
@@ -37,7 +34,6 @@ public class Login extends JFrame {
 		init();
 	}
 
-	// 创建单例
 	private static Login login = null;
 
 	public static Login getInstance() {
@@ -50,8 +46,6 @@ public class Login extends JFrame {
 		}
 		return login;
 	}
-
-	// 单例创建完毕
 
 	private void init() {
 
@@ -66,7 +60,6 @@ public class Login extends JFrame {
 		PasswordField = new JPasswordField();
 		PasswordField.setBounds(162, 89, 190, 35);
 		getContentPane().add(PasswordField);
-		PasswordField.addKeyListener(new KeyButtonAction());
 
 		LoginButton = new JButton(OK);
 		LoginButton.setBounds(110, 160, 90, 35);
@@ -103,7 +96,6 @@ public class Login extends JFrame {
 			String UsernameString = UsernameTextField.getText();
 			char PasswordChar[] = PasswordField.getPassword();
 			String PasswordString = new String(PasswordChar);
-
 			if (e.getSource() == LoginButton) {
 				if ("".equals(PasswordString) && "".equals(UsernameString)) {
 					JOptionPane.showMessageDialog(null, "用户名或密码为空，请重新输入");
@@ -111,23 +103,8 @@ public class Login extends JFrame {
 				} else {
 					if (UserLogic.checkLoginByUser(UsernameString,
 							PasswordString)) {
-						User user = UserLogic.getUserByUsername(UsernameString);
-						if (UserLogic.checkUserTable(UsernameString)) { // 如果查询到没有表，显示false则创建，如果已创建显示true
-							setVisible(false);
-							Main.getInstance(user);
-						} else {
-							if (UserLogic.creatUserTable(UsernameString)) { // 创建用户任务表
-								setVisible(false);
-
-								// 传递用户名
-								Main.getInstance(user);
-							} else {
-								JOptionPane.showMessageDialog(null,
-										"用户列表初始化错误，请重试");
-								return;
-							}
-
-						}
+						setVisible(false);
+						new Main();
 					} else {
 						JOptionPane.showMessageDialog(null, "用户名或密码错误，请重新输入");
 						return;
@@ -139,59 +116,6 @@ public class Login extends JFrame {
 				// System.out.println("Register");
 				new Register();
 			}
-		}
-	}
-
-	public class KeyButtonAction implements KeyListener {
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			String UsernameString = UsernameTextField.getText();
-			char PasswordChar[] = PasswordField.getPassword();
-			String PasswordString = new String(PasswordChar);
-			
-			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				if ("".equals(PasswordString) && "".equals(UsernameString)) {
-					JOptionPane.showMessageDialog(null, "用户名或密码为空，请重新输入");
-					return;
-				} else {
-					if (UserLogic.checkLoginByUser(UsernameString,
-							PasswordString)) {
-						User user = UserLogic.getUserByUsername(UsernameString);
-						if (UserLogic.checkUserTable(UsernameString)) { // 如果查询到没有表，显示false则创建，如果已创建显示true
-							setVisible(false);
-							Main.getInstance(user);
-						} else {
-							if (UserLogic.creatUserTable(UsernameString)) { // 创建用户任务表
-								setVisible(false);
-
-								Main.getInstance(user);
-							} else {
-								JOptionPane.showMessageDialog(null,
-										"用户列表初始化错误，请重试");
-								return;
-							}
-
-						}
-					} else {
-						JOptionPane.showMessageDialog(null, "用户名或密码错误，请重新输入");
-						return;
-					}
-				}
-			}
-
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-
 		}
 	}
 
