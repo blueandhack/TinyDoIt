@@ -1,0 +1,11 @@
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\DAL.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\DAL.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.xml
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\obj\Debug\DAL.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\obj\Debug\DAL.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.Linq.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.Linq.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\bin\Debug\System.Data.SQLite.Linq.xml
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
