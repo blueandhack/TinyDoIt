@@ -1,4 +1,0 @@
-c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\Model\bin\Debug\Model.dll
-c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\Model\bin\Debug\Model.pdb
-c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\Model\obj\Debug\Model.dll
-c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\Model\obj\Debug\Model.pdb
