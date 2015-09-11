@@ -1,0 +1,10 @@
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\BLL.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\BLL.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\obj\Debug\BLL.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\obj\Debug\BLL.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\DAL.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\DAL.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\System.Data.SQLite.dll
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\System.Data.SQLite.pdb
+c:\Users\Yoga\documents\visual studio 2013\Projects\DoItDemo\BLL\bin\Debug\System.Data.SQLite.xml
